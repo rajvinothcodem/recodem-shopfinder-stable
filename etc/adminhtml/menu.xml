@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (c) 2022 ReRecodem Pvt Ltd (https://www.Recodem.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Recodem_Shopfinder::shopfinder"
+             title="Shopfinder"
+             module="Recodem_Shopfinder"
+             sortOrder="1000"
+             parent="Magento_Backend::content_elements"
+             action="shopfinder/lists"
+             resource="Recodem_Shopfinder::shopfinder"
+        />
+    </menu>
+</config>

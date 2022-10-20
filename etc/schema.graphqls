@@ -1,0 +1,51 @@
+type Query {
+    shopfinder : [shopdata] @resolver( class: "Recodem\\Shopfinder\\Model\\Resolver\\Shopfinder") @doc(description: "Get all Shop data.")
+    shopsByIdentifier(
+        identifier: String! @doc(description: "Specify the identifier of a shop.")
+        ): shopdata @resolver( class: "Recodem\\Shopfinder\\Model\\Resolver\\ShopsByIdentifier") @doc(description: "Get shop data for the given shop identifier.")
+}
+
+type Mutation {
+    updateshopinfo(input: ShopInput!): ShopOutput @resolver(class: "\\Recodem\\Shopfinder\\Model\\Resolver\\Update") @doc(description:"Update shop")
+    deleteshop(input: ShopId!): Deletemessage @resolver(class: "\\Recodem\\Shopfinder\\Model\\Resolver\\Delete") @doc(description:"Delete shop")
+}
+
+input ShopInput {
+        shop_id: Int @doc(description: "Shop Id.")
+        shop_name: String  @doc(description: "Name of the shop")
+        identifier: String @doc(description: "Unique identifier of the shop")
+        shop_image: String @doc(description: "Shop Image")
+        country: String @doc(description: "Country iso2 code")
+        latitude: String @doc(description: "Latitude of the shop")
+        longitude: String @doc(description: "Longitude of the shop")
+}
+input ShopId {
+        shop_id: Int @doc(description: "Shop Id.")
+}
+
+type ShopOutput {
+   success_message: String @doc(description: "Success Message")
+}
+
+type Deletemessage
+{
+    message: String @doc(description: "Delete Message")
+}
+
+type shopdata {
+    shop_id: Int @doc(description: "Shop Id.")
+    shop_name: String @doc(description: "Name of the shop")
+    identifier: String @doc(description: "Unique identifier of the shop")
+    shop_image: String @doc(description: "Shop Image")
+    country: String @doc(description: "Country iso2 code")
+    latitude: String @doc(description: "Latitude of the shop")
+    longitude: String @doc(description: "Longitude of the shop")
+    created_at: String @doc(description: "Shop created timestamp")
+    updated_at: String @doc(description: "Shop updated timestamp")
+}
+
+
+
+
+
+

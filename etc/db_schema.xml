@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (c) 2022 ReRecodem Pvt Ltd (https://www.Recodem.com/)
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="shopfinder" comment="Shop List Table" engine="innodb" resource="default">
+        <column xsi:type="int" name="shop_id" unsigned="false" nullable="false" identity="true" comment="Shop Id"/>
+        <column xsi:type="varchar" name="shop_name" nullable="false" length="255" comment="Name of the shop"/>
+        <column xsi:type="varchar" name="identifier" nullable="false" length="255" comment="Unique Shop Identifier"/>
+        <column xsi:type="varchar" name="country" nullable="false" length="255" comment="Country"/>
+        <column xsi:type="varchar" name="shop_image" nullable="false" length="255" comment="Shop Image"/>
+        <column xsi:type="decimal" name="latitude" nullable="false" scale="7" precision="13" comment="Latitude"/>
+        <column xsi:type="decimal" name="longitude" nullable="false" scale="7" precision="13" comment="Longitude"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="shop_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="SHOPFINDER_IDENTIFIER">
+            <column name="identifier"/>
+        </constraint>
+    </table>
+</schema>
